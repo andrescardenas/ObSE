@@ -1,0 +1,93 @@
+<div id="perfil" class="col-md-12">
+    <div class="cabezote col-md-12">
+        <div id="avatar">
+            <img style="height: 120px" ng-src="{{imagen}}"/>
+        </div> 
+        <h2 id="nombre">{{usuario}} ¡Invita Expertos!</h2>
+        <ul class="enlinea"> 
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=" Calificaciones 5 / Buenas 4 / Malas 1 "></span>
+        </ul>
+        <hr/>
+    </div>
+    <div style="clear:both"></div>
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#!/perfil/{{usuario}}">Perfil</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/especializada">Especializada</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/colmena">Mi colmena</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/finanzas">Mis Finanzas</a></li>
+	        <li class="active"><a href="#!/perfil/{{usuario}}/referir">¡Invitar Expertos! <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+</div>
+
+</div class="col-md-12">
+	<div style="text-align: center">
+		<button type="button" class="btn btn-default btn" disabled> FB | Facebook</button>
+		<button type="button" class="btn btn-default btn" disabled> Ln | LinkedIn</button>
+		<button type="button" class="btn btn-default btn" disabled> t | Twitter</button>
+		<button type="button" class="btn btn-default btn" disabled> M | Correo ... pendiente </button>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div class="form-group has-success has-feedback">
+		<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="email" class="form-control" ng-model="correos.uno" placeholder="Ingresa email">
+		</div>
+	</div>
+	<div class="form-group has-success has-feedback">
+		<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="email" class="form-control" ng-model="correos.dos" placeholder="Ingresa email">
+		</div>
+	</div>
+	<div class="form-group has-success has-feedback">
+		<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="email" class="form-control" ng-model="correos.tres" placeholder="Ingresa email">
+		</div>
+	</div>
+	<div class="form-group has-success has-feedback">
+		<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="email" class="form-control" ng-model="correos.cuatro" placeholder="Ingresa email">
+		</div>
+	</div>
+	<div class="form-group has-success has-feedback">
+		<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="email" class="form-control" ng-model="correos.cinco" placeholder="Ingresa email">
+		</div>
+	</div>
+	<br /><br />
+	<div style="text-align: center">
+		<button type="button" class="btn btn-default btn" ng-click="referir_mail()"> Enviar invitación </button>
+	</div>
+</div>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

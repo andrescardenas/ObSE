@@ -1,0 +1,21 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Ingresa a tu perfil</h1>
+</div>
+<div class='modal-body'>
+	<form ng-submit="enviar()">
+		<div class="form-group has-feedback">
+	    	<label for="nombres">Usuario</label>
+	    	<input type="text" class="form-control" id="usuario" ng-model="formulario.usuario" placeholder="Ingresa tu usuario">
+	  	</div>
+	  	<div class="form-group has-feedback">
+	    	<label for="clave">Contraseña</label>
+	    	<input type="password" class="form-control" id="clave" ng-model="formulario.clave" placeholder="Ingresa tu contraseña">
+	  	</div>
+	</form>
+	<alert type='danger' ng-show='message'>{{message}}</alert>
+</div>
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Aceptar</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>

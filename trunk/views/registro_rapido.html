@@ -1,0 +1,144 @@
+<div id="perfil" class="col-md-12">
+    <div class="cabezote col-md-12">
+    	<p ng-if="referentes">Felicitaciones!, has sido referido por {{info_referente.nombre_completo}}</p>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<div class="col-md-12">
+	<div class="col-md-2"></div>
+	<div id="basica" class="col-md-8">
+		<form ng-submit="registrar()" id="formulario_id" name="n_formulario">
+			<div class="form-group has-feedback" ng-class="usuario_libre">
+		    	<label>Email *</label>
+		    	<!--input type="text" class="form-control" ng-model="formulario.email" placeholder="Ingresa tu posible nombre de usuario"-->
+		    	<!--span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span-->
+		    	<input type="email" name="n_campo_correo" class="form-control" ng-model="formulario.email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" placeholder="Ingresa tu correo electrónico" ng-change="correoNoRepetido(formulario.email)" required>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.required">Campo Obligatorio</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.email">Invalid email</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.pattern">Correo inválido!</span>
+            	<span class="help-inline" ng-show="verificando_mail">Verificando Mail...</span>
+            	<span class="help-inline" ng-hide="no_es_real==false">El Correo no es real!</span>
+            	<span class="help-inline" ng-hide="existe_bd==false">El correo ya existe en nuestro sistema!</span>
+            	{{no_es_real}}..{{existe_bd}}
+    			<!--span ng-show="n_formulario.n_campo_correo.$error.pattern">Correo inválido!</span-->
+		  	</div>
+			<!--div ng-if="referentes" class="form-group">
+		    	<label>Referido por estas personas</label>
+		    	<select class="form-control" ng-options="referente.usuario for referente in referentes" ng-model="formulario.referente"></select>
+		  	</div-->
+			<div class="form-group">
+		    	<label>Primer Nombre * </label>
+		    	<input type="text" name="n_campo_pnombre" class="form-control" ng-model="formulario.primer_nombre" ng-pattern="/^[a-záéíóúA-ZÁÉÍÓÚ]*$/" placeholder="Ingresa tu primer nombre" required>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_pnombre.$error.required">Campo Obligatorio</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_pnombre.$error.pattern">No se aceptan caracteres especiales</span>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Segundo Nombre</label>
+		    	<input type="text" name="n_campo_snombre" class="form-control" ng-model="formulario.segundo_nombre" ng-pattern="/^[a-záéíóúA-ZÁÉÍÓÚ]*$/" placeholder="Ingresa tu segundo nombre">
+            	<span class="help-inline" ng-show="n_formulario.n_campo_snombre.$error.pattern">No se aceptan caracteres especiales</span>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Primer Apellido * </label>
+		    	<input type="text" name="n_campo_papellido" class="form-control" ng-model="formulario.primer_apellido" ng-pattern="/^[a-záéíóúA-ZÁÉÍÓÚ]*$/" placeholder="Ingresa tu primer apellido" required>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_papellido.$error.required">Campo Obligatorio</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_papellido.$error.pattern">No se aceptan caracteres especiales</span>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Segundo Apellido</label>
+		    	<input type="text" name="n_campo_sapellido" class="form-control" ng-model="formulario.segundo_apellido" ng-pattern="/^[a-záéíóúA-ZÁÉÍÓÚ]*$/" placeholder="Ingresa tu segundo apellido">
+            	<span class="help-inline" ng-show="n_formulario.n_campo_sapellido.$error.pattern">No se aceptan caracteres especiales</span>
+		  	</div>
+		  	<!--div class="form-group">
+		    	<label>Email * </label>
+		    	<input type="text" class="form-control" ng-model="formulario.email" placeholder="Ingresa tu Correo Electrónico">
+		  	</div-->
+		  	<!--div class="form-group">	
+		    	<label>Tipo de Identificación</label>
+		    	<select class="form-control" ng-model="formulario.tipo_identificacion" >
+		    		<option value="-1" disabled selected>Selecciona una opción</option>
+				  	<option ng-repeat="tipo in tipos_identificacion" value='{{tipo.id}}'>{{tipo.nombre}}</option>
+				</select>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Identificacion</label>
+		    	<input type="numbers" class="form-control" ng-model="formulario.identificacion" placeholder="Ingresa tu identificación">
+		  	</div-->
+		  	<div class="form-group">
+		    	<label>Contraseña</label>
+		    	<input type="password" name="n_campo_clave1" class="form-control" ng-model="formulario.clave1" placeholder="Ingresa tu Clave"required>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.required">Required</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.email">Invalid email</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.pattern">Correo inválido!</span>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Confirmar Contraseña</label>
+		    	<input type="password" name="n_campo_clave2" class="form-control" ng-model="formulario.clave2" placeholder="Confirma tu clave"required>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.required">Required</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.email">Invalid email</span>
+            	<span class="help-inline" ng-show="n_formulario.n_campo_correo.$error.pattern">Correo inválido!</span>
+            	<span class="help-inline" ng-show="formulario.clave1!=formulario.clave2">La clave debe ser igual</span>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Recordatorio Contraseña</label>
+		    	<input type="TEXT" class="form-control" ng-model="formulario.recordatorio" placeholder="Digita una frase para recordar tu contraseña">
+		  	</div>
+		  	
+		  	<!--div class="form-group">	
+		    	<label>País de Nacimiento</label>
+		    	<select class="form-control" ng-model="formulario.pais" >
+		    		<option value="-1" disabled selected>Selecciona una opción</option>
+				  	<option ng-repeat="pais in paises" value='{{pais.id}}'>{{pais.nombre}}</option>
+				</select>
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Ciudad de Nacimiento</label>
+		    	<select class="form-control" ng-model="formulario.ciudad" convert-to-number>
+		    		<option value="-1" disabled selected>Selecciona una opción</option>
+				 	<option ng-repeat="ciudad in ciudades"  value='{{ciudad.id}}'>{{ciudad.nombre}}</option>
+				</select>
+		  	</div>
+		  	<label>Fecha de Nacimiento</label>
+		  	<div ng-controller='dateCTRL' class='input-group one'>
+                <input type='text' class="form-control input-sm" ng-model='formulario.fecha' ng-required='campo.required' datepicker-popup='dd-MM-yyyy' is-open='opened' readonly/>
+                <a ng-click='open($event)' class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></a>
+            </div><br />
+		  	<div class="form-group">
+		    	<label>Teléfono</label>
+		    	<input type="text" class="form-control" ng-model="formulario.telefono.numero" placeholder="Ingresa tu Teléfono">
+		    	<select class="form-control" ng-model="formulario.telefono.tipo" >
+		    		<option value="-1" disabled selected>Selecciona una opción</option>
+				  	<option ng-repeat="tipo in tipos_telefono" value='{{tipo.id}}'>{{tipo.nombre}}</option>
+				</select>
+		  	</div-->
+		  	<div class="form-group">
+		    	<label>Referido por </label>
+		    	<input type="text" class="form-control" ng-model="formulario.referido_por" placeholder="Ingresa el nombre de usuario de la persona que te refiere">
+		  	</div>
+			<div class="checkbox">
+				<input ng-model='formulario.terminos' type="checkbox"> <a style="cursor:pointer" ng-click='terminos()'> Acepto términos y condiciones </a>
+				</label>
+			</div>
+			<!--div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+				<span class="sr-only">20% Complete (success)</span>
+				</div>
+			</div-->
+			<div class="g-recaptcha" data-sitekey="6Lc0eAoTAAAAAF7SgAXcoY9bqF5AbvKKQ5lSMQfG"></div>
+			<button type="submit" class="btn btn-default">Realizar Inscripción</button>
+	  		<alert type='danger' ng-show='mensaje.usuario || mensaje.formulario'>{{mensaje.descripcion}}</alert>
+	  		<!--alert type='danger' ng-show='mensaje.formulario'>{{mensaje.descripcion}}</alert-->
+			<pre>Model: {{formulario | json}}</pre>
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+<style>
+	input.ng-invalid{
+		background-color: rgba(242, 203, 203, 0.38);
+		border-color: #b94a48;
+	}
+	.help-inline{
+		color: rgba(224, 92, 92, 0.91);
+	}
+</style>

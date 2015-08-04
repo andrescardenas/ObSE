@@ -1,0 +1,58 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>{{titulo}}</h1>
+</div>
+
+<div class='modal-body'>
+    <progressbar value='porcentaje' class='progress-striped active' type='info' ng-show='porcentaje'></progressbar>
+    <form name='form' enctype='multipart/form-data' ng-show='!porcentaje'>
+        <table width='100%' border='0'>
+            <tr ng-repeat='campo in campos' ng-show='condicionar(campo.model)'>
+                <td width='100' class='name'>{{campo.label}}: </td>
+                <td class='field' ng-switch='campo.widget'>
+                    <!--Campos-->
+                    <input ng-switch-when='text' ng-model='formulario[campo.model]' ng-required='campo.required' type='text' class="form-control input-sm"/>
+                    <textarea ng-switch-when='textarea' ng-model='formulario[campo.model]' ng-required='campo.required' rows='4' class="form-control input-sm" ></textarea>
+                    <div ng-switch-when='date' ng-controller='dateCTRL' class='input-group one'>
+                        <input type='text' class="form-control input-sm" ng-model='formulario[campo.model]' ng-required='campo.required' datepicker-popup='dd-MM-yyyy' is-open='opened' readonly/>
+                        <a ng-click='open($event)' class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></a>
+                    </div>
+                    <div ng-switch-when='datetime' ng-model='formulario[campo.model]' class="input-group one date" mr-hour>
+                        <input type="text" value="{{formulario[campo.model]}}" class="form-control input-sm" readonly/>
+                        <a class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></a>
+                    </div>
+                    <div ng-switch-when='boolean' class="btn-group">
+                        <button ng-model='formulario[campo.model]' ng-required='campo.required' btn-radio="'1'" type="button" class="btn btn-default btn-sm">Si</button>
+                        <button ng-model='formulario[campo.model]' ng-required='campo.required' btn-radio="'0'" type="button" class="btn btn-default btn-sm">No</button>
+                    </div>
+                    <div ng-switch-when='file' class='input-group two' mr-file>
+                        <form>
+                            <input ng-model='formulario[campo.model]' ng-required='campo.required' id='B' type='text' class="form-control input-sm" readonly/>
+                            <input ng-file-select='adjuntar($files, campo.model)' id='A' type='file'/>
+                            <a id='C' type='reset' class='input-group-addon' ng-click='eliminar(campo.model)'><i class='glyphicon glyphicon-remove'></i></a>
+                            <a id='D' class='input-group-addon'><i class='glyphicon glyphicon-folder-open'></i></a>
+                        </form>
+                    </div>
+                    <!--Relaciones-->
+                    <select ng-switch-when='select' ng-model='formulario[campo.model]' ng-required='campo.required' ng-options='option.id as option.name for option in campo.options' class='form-control input-sm'></select>
+                    <div ng-switch-when='autocomplete' class='container-fluid'>
+                        <input ng-model='formulario[campo.model]' ng-required='campo.required' typeahead='option.id as option.name for option in campo.options | filter:$viewValue | limitTo:5' typeahead-editable='false' typeahead-input-formatter='autocompletar($model, campo.options)' type='text' class="form-control input-sm" />
+                    </div>
+                    <div ng-switch-when='radio' class='btn-group'>
+                        <button ng-model='formulario[campo.model]' ng-required='campo.required' ng-repeat='option in campo.options' btn-radio='option.id' type='button' class='btn btn-default btn-sm'>{{option.name}}</button>
+                    </div>
+                    <select ng-switch-when='select2' ng-model='formulario[campo.model]' ng-required='campo.required' ui-select2 multiple>
+                        <option ng-repeat='option in campo.options' value='{{option.id}}'>{{option.name}}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <alert ng-repeat="alerta in alertas" type="alerta.type" close="cerrarAlerta($index)">{{alerta.mensaje}}</alert>
+    <pre ng-show='debug'>{{envio|json}}</pre>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-info' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Aceptar</a>
+    <a class='btn btn-info' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>

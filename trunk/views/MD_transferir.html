@@ -1,0 +1,60 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Transferir Dinero</h1>
+</div>
+
+<div class='modal-body'>
+	<form>
+		<div class="form-group md-abonar">
+	    	<div class="form-group has-success has-feedback">
+		    	<label for="nombres">Ingrese el valor a abonar</label>
+		    	<label id="saldo"> USD $180.00 </label>
+		    	<br/>
+		    	<label id="disponible"> Disponible </label>
+		    	<input type="text" class="form-control" id="nombres" value="" placeholder="$0.00">
+		    	<br/>
+		    	<label> Ingrese el nombre de usuario o email de quien recibirá la transferencia: </label>
+		    	<input type="text" class="form-control" id="nombres" value="" placeholder="">
+		  	</div>
+	  	</div>
+	  	<hr>
+	  	<h3 class="md-titulo">Datos de Transacción</h3>
+		<div class="row">
+		  <div class="col-md-6 row-left"><label>Entidad Bancaria</label></div>
+		  <div class="col-md-4 row-right">Bnacolombia</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left"><label>Tipo de Cuenta</label></div>
+		  <div class="col-md-4 row-right">Ahorros</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left">Abonado en cuenta</div>
+		  <div class="col-md-4 row-right">**** 34548</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left">Pagado a:</div>
+		  <div class="col-md-4 row-right">Guillomal</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left"><label>Identificación</label></div>
+		  <div class="col-md-4 row-right">80198817</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left">Fecha</div>
+		  <div class="col-md-4 row-right">31 de Mayo de 2015</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left">Número de transacción</div>
+		  <div class="col-md-4 row-right">87787667</div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 row-left">Ingrese su contraseña</div>
+		  <div class="col-md-4 row-right"><input type="password" class="form-control" id="nombres" value="" placeholder=""></div>
+		</div>
+	</form>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Transferir</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>

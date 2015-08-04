@@ -1,0 +1,81 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Editar Perfil</h1>
+</div>
+
+<div class='modal-body'>
+	<form>
+		<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Primer Nombre</label>
+	    	<input type="text" class="form-control" id="nombres" value="Guillermo Andrés" placeholder="">
+	    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+	  	<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Segundo Nombre</label>
+	    	<input type="text" class="form-control" id="nombres" value="Guillermo Andrés" placeholder="">
+	    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+	  	<div class="form-group has-warning has-feedback">
+	    	<label for="nombres">Primer Apellidos</label>
+	    	<input type="text" class="form-control" id="nombres" value="" placeholder="Ingresa tus apellidos">
+		  	<span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+	  	<div class="form-group has-warning has-feedback">
+	    	<label for="nombres">Segundo Apellidos</label>
+	    	<input type="text" class="form-control" id="nombres" value="" placeholder="Ingresa tus apellidos">
+		  	<span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+	  	<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Identificacion</label>
+	    	<input type="numbers" class="form-control" id="nombres" value="80197773" placeholder="Ingresa tus nombres">
+	    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+	  	<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Usuario</label>
+	    	<input type="text" class="form-control" id="nombres" value="guillomal" placeholder="Ingresa tus nombres">
+	    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+		<div class="form-group has-success has-feedback">
+			<label for="email">Email</label>
+			<div class="input-group">
+					<span class="input-group-addon">@</span>
+					<input type="email" class="form-control" id="email" value="guillomal373@gmail.com" placeholder="Enter email">
+			</div>
+	    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		</div>
+		<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Lugar de Nacimiento</label>
+	  	</div>
+	  	<div class="form-group has-success has-feedback">
+	    	<label for="nombres">País</label>
+	    	<select class="form-control">
+	    		<option>Colombia</option>
+	    	</select>
+	  	</div>
+	  	<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Ciudad</label>
+	    	<select class="form-control">
+	    		<option>Bogotá</option>
+	    	</select>
+	  	</div>
+	  	<div class="form-group has-success has-feedback">
+	    	<label for="nombres">Teléfono</label>
+	    	<input type="numbers" class="form-control" id="nombres" value="3004564545" placeholder="Ingresa tus nombres">
+	    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	</div>
+		<div class="form-group">
+			<label for="foto">Cambiar Imagen</label>
+			<input type="file" id="foto">
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+				<span class="sr-only">90% Complete (success)</span>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Aceptar</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>

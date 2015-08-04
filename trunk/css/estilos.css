@@ -1,0 +1,265 @@
+/* GENERALES */
+@import "../css/birds-font.css";
+
+.navbar_inicio{
+  border: none;
+  background-color: #000;
+}
+
+#navbar > ul > li > a {
+  color: #fff;
+}
+
+.marca, .marca span{
+  font-family: 'Birds', sans-serif !important;
+  font-size: 30px !important;
+  color: #fff !important;
+}
+
+.marca span{
+  letter-spacing: -7px;
+}
+
+.icon-bar{
+  background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle{
+  border: none !important;
+}
+
+.collage{
+  background: url(../images/collage1366.jpg) center no-repeat;
+  width: 1366px;
+  height: 768px;
+  margin: auto !important;
+  text-align: center !important;
+  /*background-position-x: 50%;*/
+}
+
+ul.enlinea{	
+	padding-left: 0px;
+}
+ul.enlinea li{
+	display: inline;
+}
+.row-left {
+  text-align: right;
+  font-weight: 500;
+  height: 34px;
+  margin-top: 5px;
+}
+.md-titulo{
+	text-align: center;
+}
+
+/* BUSCADOR */
+#logo{
+  background: url(../images/logo_sitio.png) no-repeat;
+  width: 496px;
+  height: 195px;
+  margin: 120px auto 20px auto;
+	text-align: center;
+}
+
+/* RESULTADOS */
+.pagination>li>a, .pagination>li>span{
+  color: #CA135D !important;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 2;
+    color: #fff !important;
+    cursor: default;
+    background-color: #CA135D;
+    border-color: #CA135D;
+}
+
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #777 !important;
+}
+
+.tolerancia{
+  margin: 30px 0px;
+}
+
+a.experticia{
+  color: #CA135D !important;
+}
+
+a.experticia:hover, a.experticia:focus{
+  text-decoration: none;
+}
+
+p.texto{
+  font-weight: 300;
+}
+
+.centrado{
+  text-align: center;
+}
+
+#resultados .resultado {
+  /*border-bottom: 1px #B7B7B7 solid;*/
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 25px;
+}
+
+#resultados .resultado:hover{
+  background-color: #EFEFEF;
+  border-bottom: 1px #B7B7B7 solid;
+}
+
+#resultados .resultado .avatar {
+	padding: 20px;
+	float: left;
+}
+#resultados .resultado .descripcion {
+  padding-left: 50px;
+}
+
+#resultados .resultado .descripcion h2 {
+	margin: 10px 0px 0px 0px;
+}
+#resultados .resultado .descripcion .etiquetas li{
+	display: inline;
+	padding: 5px;
+	background: #fff;
+  border-bottom: 1px #7b7b7b solid;
+	margin: 5px;
+	border-radius: 5px;
+} 
+
+/* PERFIL */
+#perfil .cabezote {
+	text-align: center;
+	margin-top: 90px;
+}
+
+#perfil .cabezote #avatar img{
+	width: auto;
+	height: 120px;
+}
+#perfil .cabezote .glyphicon-star{
+	  font-size: 15pt;
+}
+#perfil .cabezote  hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 3px solid #181818;
+}
+
+/* Modals */
+/*abonar*/
+.md-abonar #saldo {
+  float: right;
+  color: green;
+  font-size: 14pt;
+  font-weight: 300;
+}
+.md-abonar #disponible {
+  width: 100%;
+  text-align: right;
+  padding-right: 22px;
+  font-weight: 400;
+}
+/*debito*/
+.md-debito h2 {
+  font-size: 15pt;
+  font-weight: 400;
+  text-align: center;
+  margin: 0px;
+}
+.md-debito h3 {
+  font-size: 13pt;
+  font-weight: 100;
+  text-align: center;
+  margin: 0px;
+}
+
+/*estados*/
+.md-estados h2{
+  font-size: 15pt;
+  font-weight: 400;
+  text-align: center;
+  margin: 0px;
+  color:black;
+}
+
+.md-estados h3{
+  font-size: 13pt;
+  font-weight: 100;
+  text-align: center;
+  margin: 0px;
+  color:black;
+}
+
+
+/*********** RESPONSIVE **************/
+
+@media only screen and (max-width: 1200px) {
+  
+}
+
+@media only screen and (max-width: 1024px) { /*MEDIDA iPad acostado*/
+  .collage{
+    background: url(../images/collage480.jpg) no-repeat;
+  }  
+}
+
+@media only screen and (max-width: 995px) {
+ 
+}
+
+@media only screen and (max-width: 768px) {/*Valor original del max-width:767px*/
+  
+}
+
+@media only screen and (max-width: 520px) {
+  #logo, #logo span {
+    margin-top: 120px;
+    margin-bottom: 20px;
+    font-size: 90px;
+  }
+  #logo > span:nth-child(1){
+    letter-spacing: -22px;
+  }
+
+  #logo > span:nth-child(2){
+    letter-spacing: -28px;
+  }
+
+  #logo > span:nth-child(3){
+    letter-spacing: -11px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #logo{
+    width: 295px;
+    height: 79px;
+    background: url(../images/logo_sitio320.png) no-repeat;
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+  .collage{
+    background: url(../images/collage480.jpg) no-repeat;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #logo{
+    width: 295px;
+    height: 79px;
+    background: url(../images/logo_sitio320.png) no-repeat;
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+  .collage{
+    background: url(../images/collage320.jpg) no-repeat;
+    width: 320px;
+    height: 568px;
+  }
+}

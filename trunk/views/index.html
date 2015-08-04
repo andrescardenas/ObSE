@@ -1,0 +1,18 @@
+<div id="logo"></div>
+<!--form action="http://soyexperto.net/sitio/#!/resultados" id="f" method="get"-->
+<form>
+    <div class="input-group">
+        <input type="text" class="form-control input-lg" placeholder="Experticia Pais Ciudad Barrio" ng-model="busqueda.opciones" typeahead="option as option.frase for option in p.opciones | filter:$viewValue">
+        <span class="input-group-btn">
+            <button class="btn btn-default btn-lg" ng-click='buscar()' type="button" ng-disabled="!(busqueda.opciones)">Buscar</button>
+        </span>
+    </div>
+    <!--pre>Model: {{busqueda.opciones | json}}</pre-->
+</form>
+<script>
+$(document).ready(function() {
+  /*$("body").each(function( index ) {
+      $(this).removeClass("collage");
+  });*/
+});
+</script>

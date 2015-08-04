@@ -1,0 +1,42 @@
+<form>
+    <div class="input-group tolerancia">
+        <input type="text" class="form-control" placeholder="Experticia Pais Ciudad Barrio" ng-model="busqueda.opciones" typeahead="option as option.frase for option in p.opciones | filter:$viewValue">
+        <span class="input-group-btn">
+            <button class="btn btn-default" ng-click='buscar()' type="button" ng-disabled="!(busqueda.opciones)">Buscar</button>
+        </span>
+    </div>
+</form> 
+<!--pre>Model: {{busqueda.opciones | json}}</pre-->
+<div class="col-md-12 centrado">
+    <pagination total-items="totalResultados" items-per-page="items" ng-model="pagina" page="pagina" max-size="5" class="pagination-sm" boundary-links="false" ng-change="navegar()"></pagination>
+</div>
+<div id="resultados" style="width: 100%">
+    <div class="centrado">{{totalResultados}} coincidencias con tu búsqueda.</div>
+	<div class="resultado row" ng-repeat="resultado in resultados">
+		<div class="avatar col-md-1">
+            <img ng-src="images/temp_avatar1.jpg"/>
+        </div> 
+        <!--div class="avatar col-md-2".>
+            <img ng-src="{{resultado.avatar}}"/>
+        </div-->
+        <div class="descripcion col-md-11" >
+    		<h2><a ng-href="#!/{{resultado.usuario}}/{{resultado.id}}" class="experticia">{{resultado.titulo}}</a></h2>
+            <ul class="enlinea"> 
+                <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            </ul>
+            <ul class="enlinea"> 
+                <li ng-repeat="index in resultado.calificacion"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            </ul>
+            <p class="texto">{{resultado.descripcion}}</p>
+            <ul class="etiquetas enlinea">
+                <li ng-repeat="etiqueta in resultado.etiquetas">{{etiqueta.nombre}}</li>
+            </ul>
+        </div>
+	</div>
+</div>
+<div class="col-md-12 centrado tolerancia">
+    <pagination total-items="totalResultados" items-per-page="items" ng-model="pagina" page="pagina" max-size="5" class="pagination-sm" boundary-links="false" ng-change="navegar()"></pagination>
+</div>

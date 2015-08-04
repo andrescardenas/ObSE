@@ -1,0 +1,83 @@
+<div id="perfil" class="col-md-12">
+    <div class="cabezote col-md-12">
+        <div id="avatar">
+            <img style="height: 120px" ng-src="{{imagen}}"/>
+        </div> 
+        <h2 id="nombre">{{usuario}}</h2>
+        <ul class="enlinea"> 
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=" Calificaciones 5 / Buenas 4 / Malas 1 "></span>
+        </ul>
+        <hr>
+    </div>
+    <div style="clear:both"></div>
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#!/perfil/{{usuario}}">Perfil</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/especializada">Especializada</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/colmena">Mi colmena</a></li>
+	        <li  class="active"><a href="#!/perfil/{{usuario}}/finanzas">Mis Finanzas <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#!/perfil/{{usuario}}/referir">¡Invitar Expertos!</a></li>
+	      </ul>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+</div>
+
+</div class="col-md-12">
+	<div style="text-align: center">
+		<h2>Plan</h2><p>{{plan}}</p>
+		<h2>Mis Ingresos</h2>
+		<h2 style="color:gray">PCOL ${{monto}} <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="3 días para } "></span></h2> 
+		<br />
+		<button type="button" class="btn btn-default btn-sm" ng-click="abonar()"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Abonar </button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="retirar()"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Retirar </button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="transferir()"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span> Transferir dinero</button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="debito()"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> Débito automático</button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="estados()"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Estado y movimientos</button>
+		<button type="button" class="btn btn-default btn-sm" ng-click="pagar()"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Pagar</button>
+	</div>
+	<hr>
+	<div> Gráficas de Finanzas <br/>
+		<div class="servicio col-md-4">
+			<div value="torta" type="pie" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="lineas" type="column" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="barras" type="pie" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="barras" type="column" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="torta" type="pie" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="lineas" type="spline" chart></div>
+		</div>
+	</div>
+</div>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

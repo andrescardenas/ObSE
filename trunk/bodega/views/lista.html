@@ -1,0 +1,18 @@
+<div id="lista">
+	<h1 ng-bind-html-unsafe='breadcrum'></h1>
+	<em>{{total | number:0}} resultados (Página {{page | number:0}} / {{pages | number:0}})</em>
+	<ul id="acciones">
+	    <li><a class="btn btn-info btn-sm" ng-click="buscar()" ng-disabled='relaciones'>Buscar <i class="glyphicon glyphicon-search"></i></a></li>
+	    <li><a class="btn btn-info btn-sm" ng-click="crear()">Crear <i class="glyphicon glyphicon-plus"></i></a></li>
+	   	<li class='dropdown'>
+	   		<a class='btn btn-info btn-sm dropdown-toggle'>Secciones <i class='glyphicon glyphicon-chevron-down'></i></a> 
+	    	<ul class='dropdown-menu'>
+	    		<li ng-repeat='seccion in secciones'><a href='#/{{seccion}}/1'>{{seccion}}</a></li>
+	    	</ul>
+	    </li>
+	    <li><a ng-click='logout()' class='btn btn-info btn-sm'>Salir <span class='glyphicon glyphicon-log-out'></span></a></li>
+	</ul>
+
+	<div class="gridStyle" ng-grid="gridOptions"></div>
+	<pagination items-per-page="items" total-items="total" page="page" previous-text="Anterior" next-text="Siguiente" max-size="10" on-select-page="navegar(page)"></pagination>
+</div>
