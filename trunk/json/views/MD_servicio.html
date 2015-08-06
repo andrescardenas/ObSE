@@ -1,0 +1,149 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Nueva Especialidad (Servicio)</h1>
+</div>
+<div class='modal-body'>
+    <div class='modal-body'>
+		<form>
+			<div class="form-group">
+		    	<label>Titulo</label>
+		    	<input type="text" class="form-control" ng-model="formulario.titulo" placeholder="titulo">
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Descripción</label>
+		    	<textarea class="form-control" rows="3" ng-model="formulario.descripcion"></textarea>
+		  	</div>
+		  	<hr/>
+		  	<div class="form-group" ng-repeat="experiencia in formulario.experiencias">
+		    	<label class="col-md-12" for="nombres">Experiencia(s)</label>
+				<div class="col-md-4">
+					<label>Lugar</label>
+					<input type="text" class="form-control" placeholder="En donde?" ng-model="experiencia.donde" >
+				</div>
+				<div class="col-md-4">
+					<label>Fecha Inicio</label>
+				  	<div ng-controller='dateCTRL' class='input-group one'>
+		                <input type='text' class="form-control input-sm" ng-model='experiencia.inicio' ng-required='true' datepicker-popup='dd-MM-yyyy' is-open='opened' readonly/>
+		                <a ng-click='open($event)' class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></a>
+		            </div>
+				</div>
+				<div class="col-md-4">
+					<label>Fecha Final</label>
+					<div ng-controller='dateCTRL' class='input-group one'>
+		                <input type='text' class="form-control input-sm" ng-model='experiencia.fin' ng-required='true' datepicker-popup='dd-MM-yyyy' is-open='opened' readonly/>
+		                <a ng-click='open($event)' class='input-group-addon'><i class='glyphicon glyphicon-calendar'></i></a>
+		            </div>
+				</div>
+				<div class="form-group col-md-12">
+			    	<label>Descripción</label>
+			    	<textarea class="form-control" rows="3" ng-model="experiencia.descripcion"></textarea>
+			  	</div>
+		  	</div>
+		  	<a class="form-group col-md-12" ng-click="agregarExperiencia()">más</a>
+		  	<div class="form-group col-md-12">
+		  		<label class="col-md-12">Teléfonos</label>
+				<label ng-repeat="telefono in telefonos">
+				  <input style="margin:5px" type="checkbox" checklist-model="formulario.telefonos" checklist-value="telefono.id"> {{telefono.numero}}
+				</label>
+			</div>
+			<div class="form-group col-md-12">
+				<label class="col-md-12">Emails</label>
+				<label ng-repeat="email in emails">
+				  <input style="margin:5px" type="checkbox" checklist-model="formulario.emails" checklist-value="email.id"> {{email.email}}
+				</label>
+			</div>
+			<hr/>
+		    <label class="form-group col-md-12" for="nombres">Ubicacion(es)</label>
+			<div class="form-group col-md-12" ng-repeat="ubicacion in formulario.ubicaciones">
+				<div class="col-md-3">
+					<label class="">Pais</label>
+					<select class="form-control" ng-model="ubicacion.pais" >
+			    		<option value="-1" disabled selected>Selecciona una opción</option>
+					  	<option ng-repeat="pais in paises" value='{{pais.id}}'>{{pais.nombre}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label class="">Ciudad</label>
+					<select class="form-control" ng-model="ubicacion.ciudad" >
+			    		<option value="-1" disabled selected>Selecciona una opción</option>
+					  	<option ng-repeat="ciudad in ciudades" value='{{ciudad.id}}'>{{ciudad.nombre}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label>Barrio</label>
+					<input type="text" class="form-control" placeholder="Barrio" ng-model="ubicacion.barrio" >
+				</div>
+				<div class="col-md-3">
+					<label>Código Postal</label>
+					<input type="text" class="form-control" placeholder="Código postal" ng-model="ubicacion.codigozip">
+				</div>
+			  	<div class="form-group col-md-12">
+			    	<label for="nombres">Descripción</label>
+			    	<textarea class="form-control" rows="3" ng-model="ubicacion.descripcion"></textarea>
+			  	</div>
+		  	</div>
+		  	<a class="form-group col-md-12" ng-click="agregarUbicacion()">más</a>
+		  	<hr/>
+		  	<div class="form-group col-md-12">
+		    	<label for="nombres">Horario(s)</label>
+		  	</div>
+		  	<div class="form-group" ng-repeat="horario in formulario.horarios"> 
+				<div class="form-group col-md-12">
+				<label ng-repeat="dia in dias">
+				  <input style="margin:5px" type="checkbox" checklist-model="horario.dias" checklist-value="dia.id"> {{dia.nombre}}
+				</label>
+
+				</div>
+				<div class="form-group col-md-12">
+					<div ng-controller="TimepickerDemoCtrl">
+						<div class="form-group col-md-6">
+							<label>Hora Inicial</label>
+								<timepicker ng-model="horario.inicio" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Hora Final</label>
+								<timepicker ng-model="horario.fin" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+						</div>
+						<!--timepicker ng-model="horario.inicio" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker-->
+					</div>
+			  	</div>
+		  	</div>
+		  	<a class="form-group col-md-12" ng-click="agregarHorario()">más</a>
+		  	<div class="form-group col-md-12">
+		  		<label class="col-md-12">Características del Servicio</label>
+				<label ng-repeat="caracteristica in caracteristicas">
+				  <input style="margin:5px" type="checkbox" checklist-model="formulario.caracteristicas" checklist-value="caracteristica.id"> {{caracteristica.nombre}}
+				</label>
+			</div>
+			<div class="form-group">
+		    	<label>También puedes registrar un sitio web para tu especialidad</label>
+		    	<input type="text" class="form-control" ng-model="formulario.web" placeholder="Página web">
+		  	</div>
+		  	<div class="form-group">
+		    	<label>Etiquetas</label>
+		    	<select ng-model='formulario.etiquetas' ui-select2 multiple style="width:100%">
+                    <option ng-repeat='etiqueta in etiquetas' value='{{etiqueta.id}}'>{{etiqueta.nombre}}</option>
+                </select>
+		  	</div>
+		</form>
+	</div>
+	<div class="form-group col-md-12">
+		<div class="progress">
+			<div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+				<span class="sr-only">10% Complete (success)</span>
+			</div>
+		</div>
+	</div>
+	<pre>{{ formulario | json }}</pre>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='crearServicio()'>Aceptar</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()'>Cancelar</a>
+</div>
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

@@ -1,0 +1,12 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Listado de Planes</h1>
+</div>
+
+<div class='modal-body'>
+	<a class='btn btn-default btn-sm' target="_blank" ng-repeat="plan in planes" ng-click="pagar(plan.id, plan.monto)">{{plan.nombre}} ... ${{plan.monto}}</a>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' target="_blank">.</a>
+</div>

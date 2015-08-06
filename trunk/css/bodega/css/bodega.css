@@ -1,0 +1,131 @@
+body {
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    margin: 0px;
+    width: 100%;
+    background: #333 url(../images/fondo.png);
+}
+select:focus, button:focus, .btn:focus { 
+    outline: none; 
+}
+
+/*Configuración login*/
+#login {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border: solid 1px #EAEAEA;
+    min-width: 300px;
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    margin-top: 30px;
+}
+#login h1 {
+    text-align: left;
+    margin-top: -5px;
+}
+#login .form-control {
+    width: 260px;
+    margin: 5px 0px;
+    min-width: 200px;
+}
+#login .btn {
+    float: left;
+    width: 259px;
+    background: #ffffff; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2Y3ZjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f7f7f7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f7f7f7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f7f7f7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f7f7f7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f7f7f7 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f7f7f7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-8 */
+}
+
+/*Configuración lista*/
+#lista {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border: solid 1px #EAEAEA;
+    min-width: 820px;
+    border-radius: 4px;
+}
+#lista h1 {
+    margin: 0px;
+    font-weight: normal;
+    display: block;
+}
+#lista h1:first-letter{
+    text-transform: capitalize;
+}
+#lista #acciones {
+    float: right;
+    margin-top: -30px;
+    list-style-type: none;
+}
+#lista #acciones li{
+    float: left;
+    margin-left: 5px;
+}
+#lista #acciones .dropdown-menu li {
+    float: none;
+    padding: 0px;
+    margin: 0px;
+}
+#lista #acciones .dropdown-menu li > a{
+    text-transform: capitalize;
+}
+#lista #acciones .dropdown-menu li > a:hover, 
+#lista #acciones .dropdown-menu li > a:focus, 
+#lista #acciones .dropdown-submenu:hover{
+    background-image: none;
+    background-color: #BBBBBB;
+}
+#lista .ngViewport {
+    height: auto !important;
+}
+#lista .ngCanvas{
+    overflow: hidden;
+}
+#lista .ngCanvas .btn-xs {
+    margin-top: 4px;
+    margin-left: 2px;
+}
+#lista .ngGrid {
+    margin-top: 10px;
+}
+#lista .ngHeaderText:first-letter {
+    text-transform: capitalize;
+}
+#lista .pagination {
+    margin: 20px auto;
+    display: table;
+}
+#lista .pagination li a{
+    color: #39B3D7;
+}
+#lista .pagination li a:hover{
+    background-color: #EFEFEF;
+    color: #39B3D7;
+}
+#lista .pagination li.active a{
+    background-color: #39B3D7;
+    color: white;
+    border-color: #39B3D7;
+}
+
+/*Configuración pie*/
+#pie {
+    width: 590px;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+#pie em {
+    color: rgb(107, 107, 107);
+    font-size: 7pt;
+}

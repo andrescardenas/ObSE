@@ -1,0 +1,60 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Débito Automático</h1>
+</div>
+
+<div class='modal-body'>
+	<form>
+		<div class="form-group md-debito">
+			<p style="color:gray">Con el débito automático puedes tener claro el dinero libre que vas acumulando período a período, sin presiones y sin preocuparte por las renovaciones.</p>
+			<h2 style="color:gray">Creciendo Juntos</h2>
+			<h3 style="color:gray">Plan Actual</h3>
+			<h3 style="color:gray">Vigencia: Mayo 30, 2015.</h3>
+			<br />
+			<label for="nombres">Identificación</label>
+	    	<input type="text" class="form-control" id="nombres" value="" placeholder="">
+	    	<br />
+	    	<label for="nombres">Usuario</label>
+	    	<input type="text" class="form-control" id="nombres" value="" placeholder="">
+	    	<br />
+			<label>Seleccion el plan de servicio</label>
+			<select class="form-control">
+				<option>Creciendo juntos</option>
+				<option>...</option>
+			</select>
+			<br />
+			<label>Seleccion el período de servicio</label>
+			<select class="form-control">
+				<option>Mensual</option>
+				<option>...</option>
+			</select>
+			<br />
+			<label>Seleccion la entidad bancaria</label>
+			<select class="form-control">
+				<option>Citibank</option>
+				<option>...</option>
+			</select>
+			<br />
+			<label>Seleccion la modalidad de débito</label>
+			<select class="form-control">
+				<option>Tarjeta de crédito</option>
+				<option>...</option>
+			</select>
+			<br />
+			<label for="nombres">Ingrese el número de la tarjeta</label>
+	    	<input type="text" class="form-control" id="nombres" value="" placeholder="">
+			<br />
+			<label for="nombres">Ingrese su contraseña</label>
+	    	<input type="password" class="form-control" id="nombres" value="" placeholder="">
+	    	<br />
+	    	<div class="checkbox" style="text-align: center">
+			  <label><input type="checkbox" value="">Términos y condiciones</label>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Programar Débito Automático</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>

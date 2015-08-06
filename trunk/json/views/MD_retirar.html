@@ -1,0 +1,43 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Retirar</h1>
+</div>
+
+<div class='modal-body'>
+	<form>
+		<div class="form-group md-abonar">
+	    	<div class="form-group has-success has-feedback">
+		    	<label for="nombres">Ingrese el valor a abonar</label>
+		    	<label id="saldo"> USD $180.00 </label>
+		    	<br/>
+		    	<label id="disponible"> Disponible </label>
+		    	<input type="text" class="form-control" id="nombres" value="" placeholder="$0.00">
+		    	<br />
+				<label>Seleccion el método de retiro</label>
+				<select class="form-control">
+					<option>Retiro en oficina</option>
+					<option>...</option>
+				</select>
+				<hr>
+				<h3 class="md-titulo">Datos de Transacción</h3>
+				<br />
+				<label>Ciudad</label>
+				<select class="form-control" id="sel1">
+					<option>Barranquilla, Atlántico</option>
+					<option>...</option>
+				</select>
+				<br />
+				<label>Seleccion oficina de retiro</label>
+				<select class="form-control" id="sel1">
+					<option>Barranquilla, Atlántico</option>
+					<option>...</option>
+				</select>
+			</div>
+	  	</div>
+	</form>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Retirar</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>

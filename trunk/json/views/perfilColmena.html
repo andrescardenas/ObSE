@@ -1,0 +1,99 @@
+<div id="perfil" class="col-md-12">
+    <div class="cabezote col-md-12">
+        <div id="avatar">
+            <img style="height: 120px" ng-src="{{imagen}}"/>
+        </div> 
+        <h2 id="nombre">{{usuario}}</h2>
+        <ul class="enlinea"> 
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=" Calificaciones 0 / Buenas 0 / Malas 0 "></span>
+        </ul>
+        <hr/>
+    </div>
+    <div style="clear:both"></div>
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="#!/perfil/{{usuario}}">Perfil</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/especializada">Especializada </a></li>
+	        <li class="active"><a href="#!/perfil/{{usuario}}/colmena">Mi colmena <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#!/perfil/{{usuario}}/finanzas">Mis Finanzas</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/referir">¡Invitar Expertos!</a></li>
+	      </ul>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+</div>
+<div class="col-md-12">
+	<div style="text-align: center">
+		<span style="color:gray">Mi Plan: Creciendo Juntos</span>
+		<br />
+		<img src="images/colmena.png" data-toggle="tooltip" data-placement="top" title=" Nivel 1: 0 / Nivel 2: 0 / Nivel 3: 0 / Nivel 4: 0 / Nivel 5: 0 "/>
+		<br />
+		<button type="button" class="btn btn-default btn-sm" onclick="window.location.href='#!/perfil/guillomal373/referir'" ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> ¡Invita a otros Expertos!</button>
+		<br /><br />
+		Haz parte del multinivel ¡Es muy sencillo!
+		<br />
+	</div>
+	<hr/>
+	<div> Referidos pendientes por pagar 
+		<p></p>
+		<div class="servicio col-md-12">
+			<table class="table table-striped"> 
+				<tr>
+					<th>Usuario</th>
+					<th>Nivel</th> 
+					<th>Fecha para renovación</th>
+				</tr>
+				<tr>
+					<td>---</td>
+					<td>---</td>
+					<td>---</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<p></p>
+	<hr/>
+	<div>6 graficas <br/>
+		<div class="servicio col-md-4">
+			<div value="torta" type="pie" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="lineas" type="column" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="barras" type="pie" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="barras" type="column" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="torta" type="pie" chart></div>
+		</div>
+		<div class="servicio col-md-4">
+			<div value="lineas" type="spline" chart></div>
+		</div>
+	</div>
+</div>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

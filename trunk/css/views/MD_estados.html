@@ -1,0 +1,85 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>Estados y movimientos<span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="http://exisweb.net/responsive-table-plugins-and-patterns, https://datatables.net/examples/styling/bootstrap.html"></span></h1>
+    <p style="text-align: right; width:100%"> 31 de Mayo de 2015, 08:30 hs </p>
+</div>
+
+<div class='modal-body'> 
+	<div class="form-group md-estados">
+		<h2>guillomal</h2>
+		<h3>Guillermo Malagón</h3>
+		<h3>cc: 80198817</h3>
+		<br />
+		<span style="width:50%; text-align:left">Ganancia referidos: </span> 
+		<span style="float:right"class=".row-left">
+			<select>
+				<option>Mayo 2015</option>
+				<option>...</option>
+			</select>
+		</span>
+		<br />
+		<br />
+		<table class="table table-striped">
+		  <tr>
+		    <th>Ref Pago</th>
+		    <th>Fecha</th>
+		    <th>Hora</th>
+		    <th>Descripción</th>
+		    <th>Monto</th>
+		    <th>Signo</th>
+		    <th>Tipo Trans</th>
+		    <th>No. Aprobación</th>
+		  </tr>
+		  <tr>
+		    <td>00123</td>
+		    <td>2015-02-12</td>
+		    <td>23:00</td>
+		    <td>Retiro</td>
+		    <td>200</td>
+		    <td>COP</td>
+		    <td>Consginación</th>
+		    <td>120234</td>
+		  </tr>
+		  <tr>
+		    <td>00123</td>
+		    <td>2015-02-12</td>
+		    <td>23:00</td>
+		    <td>Retiro</td>
+		    <td>200</td>
+		    <td>COP</td>
+		    <td>Consginación</td>
+		    <td>120234</td>
+		  </tr>
+		</table>
+	</div>
+	<nav style="text-align:center">
+	  <ul class="pagination">
+	    <li>
+	      <a href="#" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+	    <li class="active"><a href="#">1</a></li>
+	    <li><a href="#">2</a></li>
+	    <li><a href="#">3</a></li>
+	    <li><a href="#">4</a></li>
+	    <li><a href="#">5</a></li>
+	    <li>
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' ng-click='enviar()' ng-disabled='accion != "buscar" && form.$invalid || enviando'>Aceptar</a>
+    <a class='btn btn-default btn-sm' ng-click='cancelar()' ng-disabled='enviando'>Cancelar</a>
+</div>
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

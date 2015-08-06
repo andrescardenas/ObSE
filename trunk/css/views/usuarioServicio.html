@@ -1,0 +1,76 @@
+<div id="perfil" class="col-md-12">
+    <div class="cabezote col-md-12">
+        <h2 id="nombre">{{formulario.usuario}}</h2>
+        <hr/>
+    </div>
+</div>
+
+<div class="col-md-12">
+	<div class="col-md-4">
+        <h2>{{servicio.titulo}}</h2>
+        <ul class="enlinea"> 
+            <li ng-repeat="cali in calificacion"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            ({{calificacion_valor}}) <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=" promedio calificaciones "></span>
+        </ul> 
+        <p style="text-align: justify;">{{servicio.descripcion}}</p>
+        <ul class="etiquetas">
+            <li ng-repeat="etiqueta in servicio.etiquetas">{{etiqueta.nombre}}</li>
+        </ul>
+    </div>
+	<div class="col-md-4">
+        <h2>Datos de Contacto</h2>
+        <p><br /><strong>WEB: </strong>{{servicio.web}}</p>
+        <p><br /><strong>CARACTERISTICAS: </strong>{{servicio.caracteristicas}}</p>
+        <p><br /><strong>TELEFONO: </strong>{{servicio.telefonos}}</p>
+        <p><br /><strong>EXPERIENCIAS: </strong></p>
+        <div ng-repeat="experiencia in servicio.experiencias">
+            <p><strong>- {{experiencia.titulo}}</strong></p>
+            <p>{{experiencia.descripcion}}</p>
+        </div>
+        <p><br /><strong>HORARIOS: </strong></p>
+        <div ng-repeat="horario in servicio.horarios">
+            <span ng-repeat="dia in horario.dias">{{dia}} </span>
+            <p>{{horario.horas}}</p>
+        </div>
+        <p><br /><strong>UBICACIONES: </strong></p>
+        <p ng-repeat="ubicacion in servicio.ubicaciones">{{ubicacion}}</p>
+    </div>
+	<div class="col-md-4">
+        <h2>Comentarios</h2> 
+        <div ng-repeat="comentario in comentarios" class="comentarios">
+            <div class="avatar"> <img style="height: 120px" ng-src="{{comentario.imagen}}"/> </div> 
+            <div class="cuerpo">
+                <span class="valoracion">{{comentario.valoracion}}</span><br />
+                <p>{{comentario.comentario}}</p> <span class="fecha"> - {{comentario.fecha}}</span><br />
+            </div>
+        </div>
+        <div class="boton">
+            
+            <button class="btn btn-default" ng-click="comentar()"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comentar </button>
+        </div>
+    </div>
+</div>
+
+<style>
+.comentarios {
+  background-color: whitesmoke;
+  margin-bottom: 10px;
+  padding: 5px;
+  float: left;
+  width: 100%;
+  border-radius: 5px;
+}
+.comentarios .avatar {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 10px;
+}
+.comentarios .fecha {
+  font-size: 7pt;
+  color: silver;
+}
+.boton button {
+  float: right;
+}
+</style>

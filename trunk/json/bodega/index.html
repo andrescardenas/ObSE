@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app='bodega'>
+    <head>
+        <meta charset='utf-8'>
+        <title>La Bodega</title>
+        <!-- Estilos widgets -->
+        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.css'/>
+        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.10/ng-grid.css'/>
+        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/select2/3.4.1/select2.min.css'/>
+        <!-- Estilos aplicación -->
+        <link rel='stylesheet' href="css/bodega.css"/>
+        <link rel='stylesheet' href="css/modal.css"/>
+        <link rel='stylesheet' href='css/datetime.css'/>
+    </head>
+
+    <body>
+        <i class="glyphicon glyphicon-plus" style='float:left'></i>
+        <div ng-view></div>
+        <div id='pie'> 
+            <a href='http://www.soyexperto.net'><img src="images/logo.png"></a>
+            <em>Versión: 1</em>
+        </div>
+        
+        <!-- Librerías básicas -->
+        <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+        <script src='js/ng-fu-shim.js'></script> 
+        <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js'></script>
+        <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js'></script>
+        <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-cookies.js'></script>
+        <!-- Librerías widgets -->
+        <script src='//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.10/ng-grid.min.js'></script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/select2/3.4.1/select2.min.js'></script>
+        <!-- Librerías aplicación -->
+        <script src='js/ng-select2.js'></script>
+        <script src='js/bs-datetime.js'></script>
+        <script src='js/ng-fu.js'></script> 
+        <script src='js/ng-app.js'></script>
+        <script src='js/ng-controllers.js'></script>
+        <script src='js/ng-directives.js'></script>
+        <script src='js/ng-services.js'></script>
+    </body>
+</html>

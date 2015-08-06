@@ -1,0 +1,9 @@
+/* Adquirir Licencia en -> ver documento readme original de la descarga birdsofparadise*/
+
+@font-face {
+	font-family: 'Birds';
+	src: url('../fonts/birds.eot');
+	src: url('../fonts/birds.eot?#iefix') format('embedded-opentype'), url('../fonts/birds.woff') format('woff'), url('../fonts/birds.ttf') format('truetype'), url('../fonts/birds.svg') format('svg');
+	font-weight: lighter;
+	font-style: normal;
+}

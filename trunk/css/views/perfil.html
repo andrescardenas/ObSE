@@ -1,0 +1,153 @@
+<div id="perfil" class="col-md-12">
+    <div class="cabezote col-md-12">
+        <div id="avatar">
+            <img style="height: 120px" ng-src="{{formulario.imagen}}"/>
+        </div> 
+        <h2 id="nombre">{{formulario.usuario}}</h2>
+        <ul class="enlinea"> 
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title=" Calificaciones 5 / Buenas 4 / Malas 1 "></span>
+        </ul>
+
+        <hr/>
+    </div>
+    <div style="clear:both"></div>
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#!/perfil/{{usuario}}">Perfil <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#!/perfil/{{usuario}}/especializada">Especializada</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/colmena">Mi colmena</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/finanzas">Mis Finanzas</a></li>
+	        <li><a href="#!/perfil/{{usuario}}/referir">¡Invitar Expertos!</a></li>
+	      </ul>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+</div>
+
+<div class="col-md-12">
+	<div class="col-md-2"></div>
+	<div id="basica" class="col-md-8">
+		<div class='input-group' mr-file>
+	        <form>
+	        	<label for="referentes">Imagen</label>
+	            <input ng-file-select='adjuntar($files, campo.model)' id='A' type='file'/>
+	        </form>
+        </div>
+		<form>
+			<div class="form-group has-success has-feedback">
+		    	<label for="pnombre">Primer Nombre</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model="formulario.primer_nombre">
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		  	</div>
+		  	<div class="form-group has-success has-feedback">
+		    	<label for="snombre">Segundo Nombre</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model="formulario.segundo_nombre">
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		  	</div>
+		  	<div class="form-group has-warning has-feedback">
+		    	<label for="papellido">Primer Apellidos</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model="formulario.primer_apellido">
+			  	<span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+		  	</div>
+		  	<div class="form-group has-warning has-feedback">
+		    	<label for="sapellido">Segundo Apellidos</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model="formulario.segundo_apellido">
+			  	<span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+		  	</div>
+		  	<div class="form-group has-success has-feedback">
+		    	<label for="identificacion">Identificacion</label>
+		    	<input type="numbers" class="form-control" id="nombres" ng-model="formulario.identificacion">
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		  	</div>
+			<!--div class="form-group has-success has-feedback">
+				<label for="email">Email</label>
+				<div class="input-group">
+						<span class="input-group-addon">@</span>
+						<input type="text" class="form-control" id="email" ng-model="formulario.email" disabled="disabled">
+				</div>
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+			</div-->
+			<div class="form-group">
+		    	<label for="email">Emails(s)</label>
+		    	<div ng-repeat="email in formulario.emails">
+		    		<input type="text" ng-model='email.email'>
+		    	</div>
+		    	<a ng-click="agregarEmail()">más</a>
+		    	<!--input type="text" class="form-control" ng-model="formulario.telefono" placeholder="Ingresa tu Teléfono"-->
+		  	</div>
+			<div class="form-group has-success has-feedback">
+		    	<label for="referidopor">Referido por:</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model='formulario.referido_por' placeholder="Ingresa tus nombres" disabled="disabled">
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		  	</div>
+			<div class="form-group has-success has-feedback">
+		    	<label for="lugar">Lugar de Nacimiento</label>
+		  	</div>
+		  	<div class="form-group has-success has-feedback">
+		    	<label for="referidopor">Pais:</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model="formulario.pais" disabled="disabled">
+		  	</div>
+		  	<div class="form-group has-success has-feedback">
+		    	<label for="referidopor">Ciudad:</label>
+		    	<input type="text" class="form-control" id="nombres" ng-model="formulario.ciudad" disabled="disabled">
+		  	</div>
+		  	<div class="form-group has-success has-feedback">
+		    	<label for="fecha">Fecha de Nacimiento</label>
+		    	<span>{{formulario.da_fechanacimiento}}</span>
+		  	</div>
+		  	<!--div class="form-group has-success has-feedback">
+		    	<label for="telefono">Teléfono</label>
+		    	<input type="text" class="form-control" id="telefono" ng-model="formulario.telefono">
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		  	</div-->
+		  	<div class="form-group">
+		    	<label for="telefono">Teléfono(s)</label>
+		    	<div ng-repeat="telefono in formulario.telefonos">
+		    		<input type="text" ng-model='telefono.numero'>
+		    		<select class="form-control" ng-options="tipo_telefono.nombre for tipo_telefono in tipos_telefono" ng-model="telefono.tipo"></select>
+		    	</div>
+		    	<a ng-click="agregarTelefono()">más</a>
+		    	<!--input type="text" class="form-control" ng-model="formulario.telefono" placeholder="Ingresa tu Teléfono"-->
+		  	</div>
+		  	<!--div class="form-group has-success has-feedback">
+		    	<label for="telefono">Celular</label>
+		    	<input type="text" class="form-control" id="celular" ng-model="formulario.celular">
+		    	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+		  	</div-->
+			<div class="progress">
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+					<span class="sr-only">90% Complete (success)</span>
+				</div>
+			</div>
+			<!--pre>Model: {{formulario | json}}</pre-->
+			<alert type='danger' ng-show='mensaje.formulario'>{{mensaje.descripcion}}</alert>
+			<!--button type="submit" class="btn btn-default" ng-click="editar()">Editar campos</button-->
+			<button type="submit" class="btn btn-default">Guardar Cambios</button>
+			<button type="submit" class="btn btn-default" ng-click="cambiar_clave()">Cambiar clave</button>
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>

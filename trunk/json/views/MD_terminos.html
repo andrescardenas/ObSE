@@ -1,0 +1,12 @@
+<div class='modal-header'>
+    <a type='button' class='close' ng-click='cancelar()'>×</a>
+    <h1>{{contrato.titulo}}</h1>
+</div>
+
+<div class='modal-body'>
+	<span ng-bind-html-unsafe='contrato.descripcion_html'></span>
+</div>
+
+<div class='modal-footer'>
+    <a class='btn btn-default btn-sm' href="files/contratos/fi_name_recurso.1.pdf" target="_blank">Descargar PDF</a>
+</div>

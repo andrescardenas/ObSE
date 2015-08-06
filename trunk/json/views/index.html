@@ -1,0 +1,24 @@
+<div id="logo"></div>
+<!--form action="http://soyexperto.net/sitio/#!/resultados" id="f" method="get"-->
+<form name="n_formulario">
+    <div class="input-group">
+        <input type="text" name="n_campo_busqueda" ng-pattern="/^[a-záéíóúA-ZÁÉÍÓÚ]*$/" class="form-control input-lg" placeholder="Experticia Pais Ciudad Barrio" ng-model="busqueda.opciones" typeahead="option as option.frase for option in p.opciones | filter:$viewValue">
+        <span class="input-group-btn">
+            <button class="btn btn-default btn-lg" ng-click='buscar()' type="button" ng-disabled="!(busqueda.opciones)">Buscar</button>
+        </span>
+    </div>
+    <span class="help-inline" ng-show="n_formulario.n_campo_busqueda.$error.pattern">No se aceptan caracteres</span>
+    <!--pre>Model: {{busqueda.opciones | json}}</pre-->
+</form>
+<script>
+$(document).ready(function() {
+  /*$("body").each(function( index ) {
+      $(this).removeClass("collage");
+  });*/
+});
+</script>
+<style>
+  .help-inline{
+    color: rgba(224, 92, 92, 0.91);
+  }
+</style>

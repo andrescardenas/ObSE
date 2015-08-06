@@ -84,14 +84,17 @@ controllers.controller('MD_videoCTRL',function($http, $scope, $modalInstance, $c
     };
 });
 
+////ENTREGA ETAPA 1
 controllers.controller('registroRapidoCTRL',function($http, $scope, $location, $routeParams, $modal, $cookieStore){
     //$scope.usuario_libre = 'has-success';
     $scope.formulario = {};
-    $scope.formulario.tipo_identificacion = -1;
+    /*$scope.formulario.tipo_identificacion = -1;
     $scope.formulario.pais = -1;
     $scope.formulario.ciudad = -1;
     $scope.formulario.telefono = {};
-    $scope.formulario.telefono.tipo = -1;
+    $scope.formulario.telefono.tipo = -1;*/
+    $scope.formulario.clave1 = '';
+    $scope.formulario.clave2 = '';
     
     $scope.mensaje = {};
     $scope.mensaje.formulario = "";
@@ -174,9 +177,9 @@ controllers.controller('registroRapidoCTRL',function($http, $scope, $location, $
         }
     };
 
-    $scope.no_es_real = false;
+    $scope.es_real = true;
     $scope.existe_bd = false;
-    $scope.correoNoRepetido = function(_mail){
+    $scope.validarCorreo = function(_mail){
         $scope.formulario.email = _mail;
         $scope.verificando_mail = true;
         $http({
@@ -185,9 +188,25 @@ controllers.controller('registroRapidoCTRL',function($http, $scope, $location, $
             data: $scope.formulario,
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function(result){
-            $scope.no_es_real = result.no_es_real;
-            $scope.existe_bd = result.existe_bd;
+            $scope.es_real = result.data.es_real;
+            $scope.existe_bd = result.data.existe_bd;
+            if ( $scope.es_real===false || $scope.existe_bd===true ){
+                $scope.fondoInput = {'background-color':'rgba(242, 203, 203, 0.38)', 'border-color': '#b94a48'};
+            }else{
+                $scope.fondoInput = {};
+            }
+            $scope.verificando_mail = false;
         });
+    };
+
+    //correo y usuario
+    $scope.validarClaves = function(){
+        //contraseñas iguales
+        if ( $scope.formulario.clave1 == $scope.formulario.clave2 && $scope.formulario.clave1 !== '' && $scope.formulario.clave2 !== '' ){
+            $scope.estilo_claves = {'background-color':'rgba(206, 235, 206, 0.58)'};
+        }else{
+            $scope.estilo_claves = {'background-color':'rgba(242, 203, 203, 0.38)'};
+        }
     };
 });
 
@@ -757,7 +776,16 @@ controllers.controller('perfilFinanzasCTRL',function($http, $scope, $cookieStore
         })
     }; 
 
-    $scope.pagar = function(){
+    $scope.adquirirPlan = function(){
+        $modal.open({
+            templateUrl: 'views/MD_adquirir_plan.html',
+            controller: 'MD_adquirir_planCTRL',
+            resolve: {
+            }
+        });
+    }
+
+    /*$scope.pagar = function(){
         $scope.formulario.monto = $scope.monto;
         $http({
             url: 'json/pagar.php',
@@ -766,7 +794,7 @@ controllers.controller('perfilFinanzasCTRL',function($http, $scope, $cookieStore
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function(result){
         });
-    };
+    };*/
 
     // Build the chart
     $scope.barras = {
@@ -926,6 +954,33 @@ controllers.controller('perfilFinanzasCTRL',function($http, $scope, $cookieStore
     };
 });
 
+controllers.controller('MD_adquirir_planCTRL',function($http, $scope, $cookieStore, $routeParams){
+    $scope.usuario = $cookieStore.get('user');
+
+    $http.get('json/planes.php').then(function(result) {
+        //alert( JSON.stringify(result.data) ); // mostrar en venta alert
+        $scope.planes = result.data.planes;
+    });
+
+    $scope.pagar = function(_id, _monto){
+        //console.log(_id+" "+_monto+$scope.usuario.id);
+
+        $scope.formulario = {};
+        $scope.formulario.monto = _monto;
+        $scope.formulario.id_plan = _id;
+        $scope.formulario.usuario = $scope.usuario;
+
+        $http({
+            url: 'json/pagar.php',
+            method: 'POST',
+            data: $scope.formulario,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function(result){
+
+        });
+    };
+});
+
 controllers.controller('perfilReferirCTRL',function($http, $scope, $cookieStore, $routeParams, $modal){
     $scope.usuario = $routeParams.usuario;
     $scope.imagen = $cookieStore.get('avatar');
@@ -945,8 +1000,6 @@ controllers.controller('perfilReferirCTRL',function($http, $scope, $cookieStore,
             //$cookieStore.put('avatar', $scope.formulario.imagen);
         });
     };
-
-
 });
 
 controllers.controller('MD_abonarCTRL',function($http, $scope, $modalInstance){
